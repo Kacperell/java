@@ -55,12 +55,8 @@ public class Main {
    
    List<Product> produkty = new ArrayList<>();
    Map<Integer, Product>productyMapId = new HashMap<>();
-   
    Map<String,List<Product>> productyMapCat = new HashMap<>();
-   List<Product> narzedzia = new ArrayList<>();
-   List<Product> slodycze = new ArrayList<>();
-   List<Product> oprogramowanie = new ArrayList<>();
-   List<Product> inne = new ArrayList<>();
+   
  System.out.println("\n");
         try(BufferedReader in = new BufferedReader(new FileReader("produkty.txt"))) {
          String s = in.readLine();
@@ -69,30 +65,29 @@ public class Main {
             Product p= new Product(Integer.parseInt(pola[0]),pola[1],pola[2],Double.parseDouble(pola[3]));
              produkty.add(p);       
              productyMapId.put(Integer.parseInt(pola[0]),p);       
-             if(pola[2].equals("oprogramowanie")) {
-             oprogramowanie.add(p);
-         }   
-          else    if(pola[2].equals("narzędzia")) {
-             narzedzia.add(p);
-         }  
-           else   if(pola[2].equals("słodycze")) {
-             slodycze.add(p);
-         }  
-           else   if(pola[2].equals("inne")) {
-             inne.add(p);
-         }                
-              
+         
             s = in.readLine();
          }
-         productyMapCat.put("narzędzia",narzedzia);
-         productyMapCat.put("slodycze",slodycze);
-         productyMapCat.put("oprogramowanie",oprogramowanie);
-         productyMapCat.put("inne",inne);
 
          
      } catch (IOException ex) {
          ex.printStackTrace();
      }  
+        
+        
+        for(Product p:produkty) {
+
+            String kategoria=p.getCategory();
+//           System.out.println(kategoria);
+              
+           if(!productyMapCat.containsKey(kategoria)){
+               productyMapCat.put(kategoria,new ArrayList());
+           }
+           
+            productyMapCat.get(kategoria).add(p);
+
+     }   
+        
         
         for(Product p : produkty) {
 //        System.out.println(p.getName());
@@ -102,10 +97,8 @@ public class Main {
     System.out.println(productyMapId.get(104).getName());
 
     //suzkanie po kategorii
-        for (Product p : productyMapCat.get("narzędzia"))  {
-               System.out.println(p.getName()); 
-        }
-         
+     System.out.println("\n kat:");
+      System.out.println(productyMapCat.get("oprogramowanie"));
 
    }   
 }

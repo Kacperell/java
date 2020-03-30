@@ -26,5 +26,8 @@ public class Product {
         public String getName() {
 		        return name;
 		    }
+        public String getCategory() {
+		        return category;
+		    }
     
 }
