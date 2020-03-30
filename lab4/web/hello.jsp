@@ -13,9 +13,10 @@
         <title>Java Web - laboratorium 4</title>
     </head>
     <body>
-        <h1>Witaj, ${osoba.firstName} 
-            ${osoba.lastName} 
-               <a href="mailto:${osoba.emailAddress}">${osoba.emailAddress} </a>
+        <h1>Witaj, <c:out value="${osoba.firstName}"/>
+     
+         <c:out value="${osoba.lastName}"/>
+               <a href="mailto: <c:out value="${osoba.emailAddress}"/>">   <c:out value="${osoba.emailAddress}"/> </a>
         </h1>
            <!--//biboletka JSTL chroni nas meidzy innymi przed atakami xss-->  
            <c:forEach items="${dniTygodnia}" var="dzien">
