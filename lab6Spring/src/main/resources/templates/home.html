@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Pierwszy projekt springowy</title>
+        <meta charset="UTF-8" />
+    </head>
+    <body>
+        <!--<h1>Spring wita!!!</h1>-->
+        <!--<h1>Cześć <span th:text="${imie}">Anonim</span>!</h1>-->
+        
+        <h1>Przedstaw się ładnie:</h1>
+                <form action="/hello" method="post">
+          Imię: <input type="text" name="imie" />
+          Wiek: <input type="number" name="wiek" />
+          <input type="submit" value="Wyślij" />
+      </form>
+        <br>
+                  <h1>Kalkulator-Dodawanie</h1>              
+                     <form action="/dodaj" method="post">
+          Liczba 1 <input type="number" name="a" />
+          Liczba 2 <input type="number" name="b" />
+          <input type="submit" value="Dodaj" />
+      </form>
+                    <br>
+                  <h1>Kalkulator-Wybor</h1>              
+                     <form action="/oblicz" method="post">
+          Liczba 1 <input type="number" name="kwa" />
+          Liczba 2 <input type="number" name="kwb" />
+          <br>
+          Wybierz działanie   <select  name="dzialanie">
+                    <option value="+">Dodawanie</option>
+                    <option value="-">Odejmowanie</option>
+                    <option value="*">Mnożenie</option>
+                  </select>
+          <input type="submit" value="Oblicz" />
+      </form>
+                  
+                  
+                         <br>
+                  <h1>zad3 Grupowanie dancyh</h1>              
+                     <form action="/obliczzad3" method="post">
+          Liczba 1 <input type="number" name="liczbaA" />
+          Liczba 2 <input type="number" name="liczbaB" />
+          <br>
+          Wybierz działanie   <select  name="dzialanieZad3">
+                    <option value="+">Dodawanie</option>
+                    <option value="-">Odejmowanie</option>
+                    <option value="*">Mnożenie</option>
+                  </select>
+          <input type="submit" value="Oblicz" />
+      </form>
+                  
+                  
+        
+    </body>
+</html>
