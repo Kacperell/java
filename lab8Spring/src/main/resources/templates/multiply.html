@@ -1,0 +1,26 @@
+
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorator="layout">         
+
+
+        <section layout:fragment="content">
+        <div>
+            <h2>Mnozenie</h2>
+            <form action="/multiply" method="post" th:object="${calculatorForm}">
+                x = <input type="text" th:field="*{x}" th:errorClass="error" />
+                
+    <span th:if="${#fields.hasErrors('x')}" th:errors="*{x}">Błędne dane</span> <br/>
+                y = <input type="text" th:field="*{y}" th:errorClass="error"/>
+              <span th:if="${#fields.hasErrors('y')}" th:errors="*{y}">Błędne dane</span> <br/>
+
+                <input type="submit" value="Mnozenie" />
+            </form>
+        </div>            </section>
+
+</html>
